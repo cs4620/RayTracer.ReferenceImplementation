@@ -26,18 +26,9 @@ class Sphere {
     let oMinusC = o.minus(this.center)
 
 
-    /**
-     * If we solve for the quadratic formula, we have 
-     * A = d\cdot d
-     * B = 2\cdot D(O-C)
-     * C = (O-C)^2-r^2
-     * 
-     * Since d is normalized, d\cdot d = 1
-     * Note that (O-C)^2 means the dot product of (O-C) with itself.
-     * Saving (O-C) as a oMinusC, we have the following:
-     */
     let A = 1;
     let B = 2 * d.dot(oMinusC);
+    // let C = (d.dot(oMinusC)) ** 2 - this.radius ** 2
     let C = ((oMinusC).dot(oMinusC)) - this.radius ** 2
 
     let discriminant = B ** 2 - 4 * A * C;
@@ -48,15 +39,8 @@ class Sphere {
 
 
 
-    /**
-     * This root is not the same as the discriminant.
-     * The reason is that I have simplified the equation
-     * Notably, since D\cdot D is 1, there is no need for A
-     * in the discriminant. Also, you can factor 2 out of the equation,
-     * which removes the denominator and the 2 in front of -oMinusC
-     * toRoot should be discriminant/4.
-     */
     let toRoot = (d.dot(oMinusC)) ** 2 - (oMinusC.dot(oMinusC) - r ** 2)
+    // let toRoot = (oMinusC.dot(oMinusC))  - (oMinusC.dot(oMinusC) - r ** 2)
     let sqrt = Math.sqrt(toRoot);
     let t1 = (-d.dot(oMinusC) - sqrt)
     let t2 = (-d.dot(oMinusC) + sqrt)

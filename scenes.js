@@ -182,7 +182,7 @@ let mirroredPlanes = new Scene([
   dual);
 
 
-//let sceneIndex = 0;
+let sceneIndex = 2;
 if(!sceneIndex) sceneIndex = 0;
 let allScenes = [
   twoSphereSceneOrthographic,
